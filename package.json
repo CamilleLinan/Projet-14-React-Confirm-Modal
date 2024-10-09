@@ -1,5 +1,5 @@
 {
-  "name": "react-confirm-modal",
+  "name": "@camlin/react-confirm-modal",
   "version": "1.0.0",
   "main": "dist/react-confirm-modal.umd.js",
   "module": "dist/react-confirm-modal.es.js",
