@@ -1,50 +1,110 @@
-# React + TypeScript + Vite
+# react-modal-confirmation component
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The `react-modal-confirmation` is a reusable confirmation modal component built with React and Ant Design. It allows you to display a customizable confirmation dialog with multiple buttons and callback actions.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Installation
+To use the `react-modal-confirmation`, first install the required dependencies:
+```bash
+npm install antd react
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+Install this package:
+```bash
+npm install @camlin/react-modal-confirmation
 ```
+
+## Usage
+Here’s how you can use the `react-modal-confirmation` in your React project:
+
+```javascript
+import React, { useState } from 'react';
+import ConfirmModal from './components/ConfirmModal';
+
+const App = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const handleConfirm = () => {
+    setModalVisible(false);
+    console.log("Confirmed!");
+  };
+
+  return (
+    <div>
+      <button onClick={() => setModalVisible(true)}>Show Modal</button>
+      
+      <ConfirmModal
+        visible={modalVisible}
+        title="Confirmation Required"
+        content="Are you sure you want to proceed?"
+        footerButtons={[
+          { text: 'OK', type: 'primary', onClick: handleConfirm },
+          { text: 'Cancel', type: 'default', onClick: () => setModalVisible(false) },
+        ]}
+        onConfirm={handleConfirm}
+      />
+    </div>
+  );
+};
+
+export default App;
+```
+
+## Props
+The `react-modal-confirmation` component accepts the following props:
+
+
+| Prop          | Type                                  | Required | Default   | Description                                                                 |
+| ------------- | ------------------------------------- | -------- | --------- | --------------------------------------------------------------------------- |
+| `visible`     | `boolean`                             | **Yes**  | `false`   | Controls the visibility of the modal.                                       |
+| `title`       | `string`                              | No       | `""`      | The title of the modal dialog.                                               |
+| `content`     | `string`                              | No       | `""`      | The content of the modal body.                                               |
+| `footerButtons` | `ButtonProps[]`                       | No       | `[]`      | Array of button configurations to display in the modal footer.              |
+| `onConfirm`   | `() => void`                          | **Yes**  | `null`    | Callback function triggered when the modal is confirmed or closed.          |
+
+### ButtonProps
+The `footerButtons` prop accepts an array of objects with the following properties:
+
+| Prop     | Type                                                 | Required | Default   | Description                                                          |
+| -------- | ---------------------------------------------------- | -------- | --------- | -------------------------------------------------------------------- |
+| `text`   | `string`                                             | **Yes**  | `""`      | The label of the button.                                              |
+| `type`   | `'primary' \| 'default' \| 'dashed' \| 'link' \| 'text' \| undefined` | No       | `'default'` | The Ant Design button type.                                          |
+| `onClick`| `() => void`                                         | **Yes**  | `null`    | Function to be executed when the button is clicked.                  |
+
+## Example
+
+Here’s an example of passing different button configurations to the `footerButtons` prop:
+
+```javascript
+<ConfirmModal
+  visible={modalVisible}
+  title="Delete Confirmation"
+  content="Are you sure you want to delete this item?"
+  footerButtons={[
+    { text: 'Yes', type: 'primary', onClick: handleConfirm },
+    { text: 'No', type: 'default', onClick: () => setModalVisible(false) },
+    { text: 'More Info', type: 'link', onClick: () => alert('More information') },
+  ]}
+  onConfirm={handleConfirm}
+/>
+```
+
+In this example:
+- The modal displays three buttons: "Yes", "No", and "More Info".
+- Each button has its own action, such as closing the modal or triggering a confirmation.
+
+## Styling
+You can customize the styles of the modal and buttons by overriding the default Ant Design styles. Make sure to include your own SCSS or CSS file if you wish to customize the look and feel.
+
+```scss
+// Example of overriding Ant Design styles in your SCSS file
+.ant-modal {
+  background-color: #f5f5f5;
+}
+
+.ant-btn-primary {
+  background-color: #ff4d4f;
+}
+```
+
+## License
+This project is licensed under the MIT License.
