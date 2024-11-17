@@ -2,13 +2,13 @@ import React from 'react';
 import { Button, Modal } from 'antd';
 import '../styles/main.scss';
 
-interface ButtonProps {
+export interface ButtonProps {
   text: string;
   type?: 'primary' | 'default' | 'dashed' | 'link' | 'text' | undefined;
   onClick: () => void;
 }
 
-interface ConfirmModalProps {
+export interface ConfirmModalProps {
   visible: boolean;
   title?: string;
   content?: string;

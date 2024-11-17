@@ -5,7 +5,7 @@ The `react-modal-confirmation` is a reusable confirmation modal component built 
 ## Installation
 To use the `react-modal-confirmation`, first install the required dependencies:
 ```bash
-npm install antd react
+npm install react
 ```
 
 Install this package:
