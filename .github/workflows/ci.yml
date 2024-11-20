@@ -1,0 +1,56 @@
+name: PUBLISH_TO_NPM
+
+on: 
+  push: 
+    branches:
+      - master
+
+defaults: 
+  run: 
+    working-directory: ./
+
+jobs:
+  eslint: 
+    runs-on: ubuntu-20.04
+
+    steps: 
+      - name: checkout
+        uses: actions/checkout@v2
+        with: 
+          clean: true
+          ref: master
+
+      - name: install node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "21.5.0"
+      
+      - name: install dependencies
+        run: npm ci
+      
+      - name: run ESlint
+        run: npm run lint
+
+  publish:
+    runs-on: ubuntu-20.04
+    needs: [eslint]
+
+    steps: 
+      - name: checkout
+        uses: actions/checkout@v2
+        with: 
+          clean: true
+          ref: master
+
+      - name: install node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "21.5.0"
+      
+      - name: install dependencies
+        run: npm ci
+
+      - name: publish npm
+        run: npm publish
+        env: 
+          NODE_AUTH_TOKEN: ${{ secret.NPM_TOKEN }}
