@@ -1,19 +1,19 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Button, Modal } from 'antd';
 import '../styles/main.scss';
 
 export interface ButtonProps {
-  text: string;
+  text: string | ReactNode;
   type?: 'primary' | 'default' | 'dashed' | 'link' | 'text' | undefined;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export interface ConfirmModalProps {
   visible: boolean;
-  title?: string;
-  content?: string;
+  title?: string | ReactNode;
+  content?: string | ReactNode;
   footerButtons?: ButtonProps[];
-  onConfirm: () => void;
+  onConfirm?: () => void;
 }
 
 const ConfirmModal: React.FC<ConfirmModalProps> = ({
