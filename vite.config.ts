@@ -13,6 +13,7 @@ export default defineConfig({
       staticImport: true,
       insertTypesEntry: true,
       tsconfigPath: './tsconfig.app.json',
+      rollupTypes: true,
     }),
     // rollupPluginTs(),
   ],
