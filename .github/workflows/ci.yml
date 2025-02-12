@@ -51,8 +51,8 @@ jobs:
       - name: install dependencies
         run: npm ci
 
-      # - name: build npm
-      #   run: npm build
+      - name: build npm
+        run: npm build
 
       - name: publish npm
         run: npm publish
