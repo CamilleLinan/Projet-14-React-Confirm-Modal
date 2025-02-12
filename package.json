@@ -1,6 +1,6 @@
 {
   "name": "@camlin/react-confirm-modal",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "main": "dist/react-confirm-modal.umd.js",
   "module": "dist/react-confirm-modal.es.js",
   "types": "dist/index.d.ts",
@@ -25,6 +25,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.26.2",
+    "rollup-plugin-typescript2": "^0.36.0",
     "sass": "^1.79.4"
   },
   "devDependencies": {
