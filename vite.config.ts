@@ -19,7 +19,7 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'), // Utilise l'extension .ts
+      entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'ReactConfirmModal',
       fileName: (format) => `react-confirm-modal.${format}.js`,
     },
