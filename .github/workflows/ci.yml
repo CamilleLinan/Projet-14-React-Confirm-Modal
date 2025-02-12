@@ -52,7 +52,7 @@ jobs:
         run: npm ci
 
       - name: build npm
-        run: npm build
+        run: npm run build
 
       - name: publish npm
         run: npm publish
