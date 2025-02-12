@@ -1,12 +1,18 @@
 {
   "name": "@camlin/react-confirm-modal",
-  "version": "2.2.6",
+  "version": "2.2.7",
   "main": "dist/react-confirm-modal.umd.js",
   "module": "dist/react-confirm-modal.es.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
   "peerDependencies": {
     "antd": "^5.0.0",
     "react": "^18.0.0",
