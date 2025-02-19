@@ -1,17 +1,19 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "ESNext",
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
 
     /* Bundler mode */
     "moduleResolution": "bundler",
-    // "allowImportingTsExtensions": true,
+    "allowImportingTsExtensions": true,
     "isolatedModules": true,
-    "moduleDetection": "force",
-    "esModuleInterop": true,
+    "noEmit": true,
+    // "moduleDetection": "force",
+    // "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "jsx": "react-jsx",
 
     /* Linting */
@@ -21,12 +23,12 @@
     "noFallthroughCasesInSwitch": true,
 
     /* Types */
-    "declaration": true,
-    "declarationDir": "./dist",
-    "emitDeclarationOnly": false,
-    "declarationMap": true,
-    "outDir": "./dist",
-    "noEmit": false
+    // "declaration": true,
+    // "declarationDir": "./dist",
+    // "emitDeclarationOnly": true,
+    // "declarationMap": true,
+    // "outDir": "./dist",
+    // "noEmit": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]

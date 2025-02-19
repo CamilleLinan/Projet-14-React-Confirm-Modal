@@ -2,7 +2,6 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path';
 import dts from 'vite-plugin-dts';
-// import rollupPluginTs from 'rollup-plugin-typescript2';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,12 +9,11 @@ export default defineConfig({
     react(),
     dts({
       outDir: 'dist',
-      staticImport: true,
+      // staticImport: true,
       insertTypesEntry: true,
       tsconfigPath: './tsconfig.app.json',
-      rollupTypes: true,
+      // rollupTypes: true,
     }),
-    // rollupPluginTs(),
   ],
   build: {
     lib: {
