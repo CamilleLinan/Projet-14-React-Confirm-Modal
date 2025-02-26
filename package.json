@@ -1,6 +1,6 @@
 {
   "name": "@camlin/react-confirm-modal",
-  "version": "2.2.10",
+  "version": "2.3.0",
   "main": "dist/react-confirm-modal.umd.js",
   "module": "dist/react-confirm-modal.es.js",
   "types": "dist/index.d.ts",

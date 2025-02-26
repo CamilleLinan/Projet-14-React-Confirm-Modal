@@ -3,15 +3,15 @@ import { Button, Modal } from 'antd';
 import '../styles/main.scss';
 
 export interface ButtonProps {
-  text: string | ReactNode;
-  type?: 'primary' | 'default' | 'dashed' | 'link' | 'text' | undefined;
+  text: ReactNode;
+  type?: 'primary' | 'default' | 'dashed' | 'link' | 'text';
   onClick?: () => void;
 }
 
 export interface ConfirmModalProps {
   visible: boolean;
-  title?: string | ReactNode;
-  content?: string | ReactNode;
+  title?: ReactNode;
+  content?: ReactNode;
   footerButtons?: ButtonProps[];
   onConfirm?: () => void;
 }
@@ -32,7 +32,7 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({
           {btn.text}
         </Button>
       ))}
-      onCancel={onConfirm}
+      onCancel={onConfirm || (() => {})}
     >
       <p>{content}</p>
     </Modal>

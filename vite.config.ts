@@ -9,10 +9,7 @@ export default defineConfig({
     react(),
     dts({
       outDir: 'dist',
-      // staticImport: true,
-      insertTypesEntry: true,
       tsconfigPath: './tsconfig.app.json',
-      // rollupTypes: true,
     }),
   ],
   build: {
