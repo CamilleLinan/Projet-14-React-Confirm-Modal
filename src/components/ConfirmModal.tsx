@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
 import { Button, Modal } from 'antd';
-import '../styles/main.scss';
 
 export interface ButtonProps {
   text: ReactNode;
@@ -9,7 +8,7 @@ export interface ButtonProps {
 }
 
 export interface ConfirmModalProps {
-  visible: boolean;
+  open: boolean;
   title?: ReactNode;
   content?: ReactNode;
   footerButtons?: ButtonProps[];
@@ -17,7 +16,7 @@ export interface ConfirmModalProps {
 }
 
 const ConfirmModal: React.FC<ConfirmModalProps> = ({
-  visible,
+  open,
   title,
   content,
   footerButtons = [],
@@ -26,13 +25,13 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({
   return (
     <Modal
       title={title}
-      open={visible}
+      open={open}
       footer={footerButtons.map((btn, index) => (
         <Button key={index} type={btn.type} onClick={btn.onClick}>
           {btn.text}
         </Button>
       ))}
-      onCancel={onConfirm || (() => {})}
+      onOk={onConfirm}
     >
       <p>{content}</p>
     </Modal>

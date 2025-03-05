@@ -18,27 +18,27 @@ Here’s how you can use the `react-modal-confirmation` in your React project:
 
 ```javascript
 import React, { useState } from 'react';
-import ConfirmModal from './components/ConfirmModal';
+import { ConfirmModal } from '@camlin/react-confirm-modal';
 
 const App = () => {
-  const [modalVisible, setModalVisible] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const handleConfirm = () => {
-    setModalVisible(false);
+    setModalOpen(false);
     console.log("Confirmed!");
   };
 
   return (
     <div>
-      <button onClick={() => setModalVisible(true)}>Show Modal</button>
+      <button onClick={() => setModalOpen(true)}>Show Modal</button>
       
       <ConfirmModal
-        visible={modalVisible}
+        open={modalOpen}
         title="Confirmation Required"
         content="Are you sure you want to proceed?"
         footerButtons={[
-          { text: 'OK', type: 'primary', onClick: handleConfirm },
-          { text: 'Cancel', type: 'default', onClick: () => setModalVisible(false) },
+          { text: 'OK', type: 'primary', onClick: () => {} },
+          { text: 'Cancel', type: 'default', onClick: () => setModalOpen(false) },
         ]}
         onConfirm={handleConfirm}
       />
@@ -56,10 +56,10 @@ The `react-modal-confirmation` component accepts the following props:
 | Prop          | Type                                  | Required | Default   | Description                                                                 |
 | ------------- | ------------------------------------- | -------- | --------- | --------------------------------------------------------------------------- |
 | `visible`     | `boolean`                             | **Yes**  | `false`   | Controls the visibility of the modal.                                       |
-| `title`       | `string`                              | No       | `""`      | The title of the modal dialog.                                               |
-| `content`     | `string`                              | No       | `""`      | The content of the modal body.                                               |
+| `title`       | `ReactNode`                              | No       | `""`      | The title of the modal dialog.                                               |
+| `content`     | `ReactNode`                              | No       | `""`      | The content of the modal body.                                               |
 | `footerButtons` | `ButtonProps[]`                       | No       | `[]`      | Array of button configurations to display in the modal footer.              |
-| `onConfirm`   | `() => void`                          | **Yes**  | `null`    | Callback function triggered when the modal is confirmed or closed.          |
+| `onConfirm`   | `() => void`                          | No  | `null`    | Callback function triggered when the modal is confirmed or closed.          |
 
 ### ButtonProps
 The `footerButtons` prop accepts an array of objects with the following properties:
@@ -67,8 +67,8 @@ The `footerButtons` prop accepts an array of objects with the following properti
 | Prop     | Type                                                 | Required | Default   | Description                                                          |
 | -------- | ---------------------------------------------------- | -------- | --------- | -------------------------------------------------------------------- |
 | `text`   | `string`                                             | **Yes**  | `""`      | The label of the button.                                              |
-| `type`   | `'primary' \| 'default' \| 'dashed' \| 'link' \| 'text' \| undefined` | No       | `'default'` | The Ant Design button type.                                          |
-| `onClick`| `() => void`                                         | **Yes**  | `null`    | Function to be executed when the button is clicked.                  |
+| `type`   | `'primary' \| 'default' \| 'dashed' \| 'link' \| 'text'` | No       | `'default'` | The Ant Design button type.                                          |
+| `onClick`| `() => void`                                         | No  | `null`    | Function to be executed when the button is clicked.                  |
 
 ## Example
 
