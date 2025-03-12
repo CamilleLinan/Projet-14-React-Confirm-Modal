@@ -24,14 +24,16 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({
 }) => {
   return (
     <Modal
-      title={title}
       open={open}
+      title={title}
       footer={footerButtons.map((btn, index) => (
         <Button key={index} type={btn.type} onClick={btn.onClick}>
           {btn.text}
         </Button>
       ))}
       onOk={onConfirm}
+      transitionName=""
+      maskTransitionName=""
     >
       <p>{content}</p>
     </Modal>
