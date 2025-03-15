@@ -1,6 +1,6 @@
 {
   "name": "@camlin/react-confirm-modal",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "main": "dist/react-confirm-modal.umd.js",
   "module": "dist/react-confirm-modal.es.js",
   "types": "dist/index.d.ts",
@@ -12,6 +12,17 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
+  "description": "A customizable confirmation modal component built with React and Ant Design, allowing multiple buttons and callback actions.",
+  "author": "Linan Camille",
+  "keywords": [
+    "react",
+    "modal",
+    "confirmation",
+    "customizable",
+    "antd",
+    "react-modal",
+    "confirmation-dialog"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

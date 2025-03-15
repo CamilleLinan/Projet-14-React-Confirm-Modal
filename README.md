@@ -106,5 +106,9 @@ You can customize the styles of the modal and buttons by overriding the default 
 }
 ```
 
+## Environnement
+- **Node.js Version** : `v21.5.0`
+- **Éditeur de texte** : [Visual Studio Code](https://code.visualstudio.com/)
+
 ## License
 This project is licensed under the MIT License.
